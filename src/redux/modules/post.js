@@ -1,7 +1,7 @@
 import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
 import { firestore, storage } from "../../shared/firebase";
-import { ref, uploadString } from "firebase/storage";
+
 import moment from "moment";
 
 import { actionCreators as imageActions } from "./image";
@@ -10,6 +10,7 @@ const SET_POST = "SET_POST";
 const ADD_POST = "ADD_POST";
 const EDIT_POST = "EDIT_POST";
 const DELETE_POST = "DELETE_POST";
+const LIKE_POST = "LIKE_POST";
 
 const setPost = createAction(SET_POST, (post_list) => ({ post_list }));
 const addPost = createAction(ADD_POST, (post) => ({ post }));
@@ -18,6 +19,7 @@ const editPost = createAction(EDIT_POST, (post_id, post) => ({
   post,
 }));
 const deletePost = createAction(DELETE_POST, (post_idx) => ({ post_idx }));
+const likePost = createAction(LIKE_POST, (post_id) => ({ post_id }));
 
 const initialState = {
   list: [],
@@ -35,7 +37,28 @@ const initialPost = {
   contents: "포르투!!!!",
   comment_cnt: 0,
   insert_dt: moment().format("YYYY-MM-DD hh:mm:ss"),
+  user_like: [],
 };
+
+const likePostFB = (post_id = null) => {
+  return function (dispatch, getState, { history }) {
+    const _post_idx = getState().post.list.findIndex((p) => p.id === post_id);
+
+    const user_id = getState().user.user.uid;
+    console.log(getState().post.list[0].user_info.user_like, "너눅냐");
+    const postDB = firestore.collection("post");
+
+    postDB.get().then((docs) => {
+      console.log(docs);
+      docs.forEach((doc) => {
+        let _post = doc.data();
+        console.log(post_id);
+        console.log(_post);
+      });
+    });
+  };
+};
+
 const deletePostFB = (post_id = null) => {
   return function (dispatch, getState, { history }) {
     const _post_idx = getState().post.list.findIndex((p) => p.id === post_id);
@@ -116,6 +139,8 @@ const addPostFB = (contents = "", value = "") => {
 
     const _user = getState().user.user;
 
+    const user_uid = _user.uid;
+
     const user_info = {
       user_name: _user.user_name,
       user_id: _user.uid,
@@ -127,6 +152,7 @@ const addPostFB = (contents = "", value = "") => {
       contents: contents,
       value: value,
       insert_dt: moment().format("YYYY-MM-DD hh:mm:ss"),
+      user_like: [{ [user_uid]: false }],
     };
     console.log(_post, "111");
 
@@ -235,6 +261,7 @@ const actionCreators = {
   addPostFB,
   editPostFB,
   deletePostFB,
+  likePostFB,
 };
 
 export { actionCreators };

@@ -78,7 +78,6 @@ const PostWrite = (props) => {
         </Text>
         <Upload />
       </Grid>
-
       <Grid padding="16px">
         <input type="radio" name="chk_info" value="1" onClick={changeValue} />
         이미지가 오른쪽으로 가라
@@ -99,7 +98,6 @@ const PostWrite = (props) => {
           </Grid>
         </Grid>
       </Grid>
-
       <Grid padding="16px">
         <input type="radio" name="chk_info" value="2" onClick={changeValue} />
         이미지가 왼쪽으로 가라
@@ -119,7 +117,6 @@ const PostWrite = (props) => {
           </Text>
         </Grid>
       </Grid>
-
       <Grid padding="16px">
         <input type="radio" name="chk_info" value="3" onClick={changeValue} />
         이미지가 가운데로 가라
@@ -149,9 +146,17 @@ const PostWrite = (props) => {
 
       <Grid padding="16px">
         {is_edit ? (
-          <Button text="게시글 수정" _onClick={editPost}></Button>
+          <Button
+            text="게시글 수정"
+            _onClick={editPost}
+            disabled={!preview || contents === "" ? true : false}
+          ></Button>
         ) : (
-          <Button text="게시글 작성" _onClick={addPost}></Button>
+          <Button
+            text="게시글 작성"
+            _onClick={addPost}
+            disabled={!preview || contents === "" ? true : false}
+          ></Button>
         )}
       </Grid>
     </React.Fragment>

@@ -5,6 +5,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { history } from "../redux/configureStore";
 
 import { actionCreators as userActions } from "../redux/modules/post";
+import { actionCreators as likeActions } from "../redux/modules/like";
+
+import { FiHeart } from "react-icons/fi";
+import { FaHeart } from "react-icons/fa";
 
 const Post = (props) => {
   // const layout = useSelector((state) => state.post.list.value);
@@ -57,7 +61,14 @@ const Post = (props) => {
             </Grid>
 
             <Grid padding="16px">
-              <Text margin="0px" bold>
+              <FiHeart
+                onClick={(e) => {
+                  e.stopPropagation();
+                  dispatch(userActions.likePostFB(props.id));
+                }}
+                size="30px"
+              />
+              <Text margin="0px" bold size="20">
                 댓글 {props.comment_cnt}개
               </Text>
             </Grid>
@@ -109,7 +120,14 @@ const Post = (props) => {
             </Grid>
 
             <Grid padding="16px">
-              <Text margin="0px" bold>
+              <FiHeart
+                size="30px"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  dispatch(userActions.likePostFB(props.id));
+                }}
+              />
+              <Text margin="0px" bold size="20">
                 댓글 {props.comment_cnt}개
               </Text>
             </Grid>
@@ -160,7 +178,14 @@ const Post = (props) => {
             </Grid>
 
             <Grid padding="16px">
-              <Text margin="0px" bold>
+              <FiHeart
+                size="30px"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  dispatch(userActions.likePostFB(props.id));
+                }}
+              />
+              <Text margin="0px" bold size="20">
                 댓글 {props.comment_cnt}개
               </Text>
             </Grid>
