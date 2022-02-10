@@ -32,6 +32,13 @@
         4. 작성 완료 시 메인 페이지로 이동
 5. 게시글 상세 페이지
     1. 게시글 레이아웃에 맞춰 이미지, 텍스트 위치 조절해서 노출
+<div>
+<img src="https://user-images.githubusercontent.com/82128525/153416345-84f08ede-067b-457e-8d80-847571618625.png" width="400" height="500"/>
+<img src="https://user-images.githubusercontent.com/82128525/153416366-8ec73752-2285-4d90-9775-ed1ce3241b52.png" width="400" height="500"/>
+<img src="https://user-images.githubusercontent.com/82128525/153416377-c857b32b-204f-4d9d-91d8-8bc944617ed9.png" width="400" height="500"/>
+<img src="https://user-images.githubusercontent.com/82128525/153416380-e6938b26-09ce-4d08-aac9-d04b6120f56b.png" width="400" height="500"/>
+</div>
+
 
 
 
