@@ -18,7 +18,7 @@ const Post = (props) => {
     case "1":
       return (
         <React.Fragment>
-          <Grid>
+          <Grid width="100%">
             <Grid is_flex padding="16px">
               <Grid is_flex width="auto">
                 <Image shape="circle" src={props.src}></Image>
@@ -32,7 +32,8 @@ const Post = (props) => {
                     margin="5px"
                     text="수정"
                     padding="4px"
-                    _onClick={() => {
+                    _onClick={(e) => {
+                      e.stopPropagation();
                       history.push(`/write/${props.id}`);
                     }}
                   ></Button>
@@ -42,7 +43,8 @@ const Post = (props) => {
                     width="50px"
                     text="삭제"
                     padding="4px"
-                    _onClick={() => {
+                    _onClick={(e) => {
+                      e.stopPropagation();
                       dispatch(userActions.deletePostFB(props.id));
                     }}
                   ></Button>
@@ -92,7 +94,8 @@ const Post = (props) => {
                     margin="5px"
                     text="수정"
                     padding="4px"
-                    _onClick={() => {
+                    _onClick={(e) => {
+                      e.stopPropagation();
                       history.push(`/write/${props.id}`);
                     }}
                   ></Button>
@@ -102,7 +105,8 @@ const Post = (props) => {
                     width="50px"
                     text="삭제"
                     padding="4px"
-                    _onClick={() => {
+                    _onClick={(e) => {
+                      e.stopPropagation();
                       dispatch(userActions.deletePostFB(props.id));
                     }}
                   ></Button>
@@ -151,7 +155,8 @@ const Post = (props) => {
                     margin="5px"
                     text="수정"
                     padding="4px"
-                    _onClick={() => {
+                    _onClick={(e) => {
+                      e.stopPropagation();
                       history.push(`/write/${props.id}`);
                     }}
                   ></Button>
@@ -161,7 +166,8 @@ const Post = (props) => {
                     width="50px"
                     text="삭제"
                     padding="4px"
-                    _onClick={() => {
+                    _onClick={(e) => {
+                      e.stopPropagation();
                       dispatch(userActions.deletePostFB(props.id));
                     }}
                   ></Button>
