@@ -38,7 +38,3 @@
 <img src="https://user-images.githubusercontent.com/82128525/153416377-c857b32b-204f-4d9d-91d8-8bc944617ed9.png" width="400" height="500"/>
 <img src="https://user-images.githubusercontent.com/82128525/153416380-e6938b26-09ce-4d08-aac9-d04b6120f56b.png" width="400" height="500"/>
 </div>
-
-
-
-
